@@ -34,7 +34,7 @@ https://github.com/artUSUN/ModuleFramework.git
 1) Написать реализацию для интерфейса `IEcsSystemsOrderRepository`
 2) Зарегистрировать в DI-контейнере класс `EcsSystemsOrderResolver` и реализацию интерфейса `IEcsSystemsOrderRepository` из первого пункта
 
-В папке `ModuleFramework.Examples` можно найти два класса: `EcsSystemsOrderRepository` и `ModuleFrameworkInstaller`.
+В текущем репозитории в папке `Framework.Examples` можно найти два класса: `EcsSystemsOrderRepository` и `ModuleFrameworkInstaller`.
 
 Первый класс - это предлагаемая мною реализация для интерфейса `IEcsSystemsOrderRepository`. Можно скопировать ее в свой код и использовать, добавляя в словарь `Order` системы из всей игры, которым необходим переопределенный порядок выполнения.
 
