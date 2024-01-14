@@ -1,0 +1,17 @@
+{
+    "name": "ModuleFramework.Examples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:83400229288d5c24e8e093704dcad6e8",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
