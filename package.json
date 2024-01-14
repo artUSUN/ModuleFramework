@@ -1,0 +1,17 @@
+{
+  "name": "com.artusun.moduleframework",
+  "author": "artUSUN",
+  "displayName": "ModuleFramework",
+  "description": "High-level architectural framework for Unity Game Engine.",
+  "unity": "2020.3",
+  "version": "1.0.0",
+  "keywords": [
+    "module",
+    "moduleframework",
+  ],
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artUSUN/ModuleFramework"
+  }
+}
