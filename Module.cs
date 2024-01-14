@@ -151,16 +151,20 @@ namespace ModuleFramework
             if (!IsActive)
                 return;
             
-            IsActive = false;
-
             foreach (var module in Children)
-                if (module.IsActive)
-                    await module.Deactivate();
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                module.Deactivate();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
+            while (Children.Any(module => module.IsActive))
+                await UniTask.NextFrame();
             
             foreach (var imp in _deactivationListeners)
                 imp.OnModuleDeactivate();
             
             await OnDeactivate();
+            
+            IsActive = false;
             
             foreach (var tuple in _systemsGroups)
                 World.Default.RemoveSystemsGroup(tuple.Item1);
@@ -175,17 +179,21 @@ namespace ModuleFramework
                 await Deactivate();
 
             for (var i = 0; i < Children.Count; i++)
-                await Children[0].Unload();
-
-            Parent?.Children.Remove(this);
-
-            IsLoaded = false;
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                Children[0].Unload();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            
+            while (Children.Any())
+                await UniTask.NextFrame();
             
             foreach (var imp in _unloadListeners)
                 imp.OnModuleUnload();
             
             await OnUnload();
 
+            Parent?.Children.Remove(this);
+            IsLoaded = false;
+            
             foreach (var (_, order) in _systemsGroups)
                 _orderResolver.ReleaseOrder(order);
             
