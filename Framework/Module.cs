@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using ModuleFramework.Interfaces;
 using ModuleFramework.SystemsOrder;
 using Scellecs.Morpeh;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 using Object = UnityEngine.Object;
@@ -146,14 +147,21 @@ namespace ModuleFramework
         public async UniTask Deactivate()
         {
             if (!IsLoaded)
+            {
+                Debug.LogError($"Attempt to deactivate an unloaded module {nameof(GetType)}");
                 return;
+            }
 
             if (!IsActive)
+            {
+                Debug.LogError($"Attempt to deactivate a deactivated module {nameof(GetType)}");
                 return;
+            }
             
-            foreach (var module in Children)
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-                module.Deactivate();
+            foreach (var module in Children)
+                if (module.IsActive)
+                    module.Deactivate();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
             while (Children.Any(module => module.IsActive))
@@ -173,16 +181,19 @@ namespace ModuleFramework
         public async UniTask Unload()
         {
             if (!IsLoaded)
+            {
+                Debug.LogError($"Attempt to unload an unloaded module {nameof(GetType)}");
                 return;
+            }
             
             if (IsActive)
                 await Deactivate();
 
-            for (var i = 0; i < Children.Count; i++)
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-                Children[0].Unload();
+            foreach (var module in Children.ToArray())
+                    module.Unload();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            
+
             while (Children.Any())
                 await UniTask.NextFrame();
             
