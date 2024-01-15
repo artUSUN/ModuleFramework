@@ -13,7 +13,7 @@ namespace ModuleFramework
 {
     public abstract class Module
     {
-        private List<ValueTuple<SystemsGroup, int>> _systemsGroups;
+        private List<ValueTuple<SystemsGroup, int>> _systemsGroups = new(1);
 
         private EcsSystemsOrderResolver _orderResolver;
 
