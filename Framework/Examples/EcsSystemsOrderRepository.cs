@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using ModuleFramework.Interfaces;
 using ModuleFramework.SystemsOrder;
 
 namespace ModuleFramework.Examples
