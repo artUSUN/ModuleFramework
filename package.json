@@ -10,8 +10,7 @@
     "moduleframework"
   ],
   "dependencies": {
-    "com.unity.addressables" : "1.22.2",
-    "com.cysharp.unitask" : "2.5.5"
+    "com.unity.addressables" : "1.22.2"
   },
   "repository": {
     "type": "git",
