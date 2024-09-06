@@ -20,9 +20,11 @@ High-level architectural framework for Unity Engine
 * DI-контейнер [VContainer](https://vcontainer.hadashikick.jp/)
 
 Ссылки для быстрого добавления через Package Manager:
-https://github.com/hadashiA/VContainer.git
-https://github.com/scellecs/morpeh.git
-https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask
+* https://github.com/hadashiA/VContainer.git
+
+* https://github.com/scellecs/morpeh.git
+
+* https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask
 
 ## Как установить?
 1) Установить все необходимые зависимости
