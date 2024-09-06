@@ -20,7 +20,7 @@ High-level architectural framework for Unity Engine
 * DI-контейнер [VContainer](https://vcontainer.hadashikick.jp/)
 
 Ссылки для быстрого добавления через Package Manager:
-* https://github.com/hadashiA/VContainer.git
+* https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer
 
 * https://github.com/scellecs/morpeh.git
 
