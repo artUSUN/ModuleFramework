@@ -13,7 +13,7 @@ High-level architectural framework for Unity Engine
 ## Зависимости, необходимые для работы фреймворка
 * ECS-фреймворк [Morpeh](https://github.com/scellecs/morpeh)
 
-* Unity Addressables (добавяться автоматически)
+* Unity Addressables (добавятся автоматически)
 
 * [UniTask](https://github.com/Cysharp/UniTask)
 
